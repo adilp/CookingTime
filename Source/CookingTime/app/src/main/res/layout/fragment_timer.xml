@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/purple"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/A"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/AB"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Time Left"
+                android:id="@+id/textView5"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/clockText"
+                android:id="@+id/mTextViewClock"
+                android:editable="false"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:textSize="45sp"
+                android:textColor="#FFFF"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/space"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/B"
+        android:layout_width="fill_parent"
+        android:layout_height="63dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <LinearLayout
+            android:id="@+id/CB"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/startButtonText"
+                android:id="@+id/startButton"
+                android:layout_weight="1"
+                android:background="@drawable/start"
+                android:textColor="#e5e5e5"
+
+                android:textSize="18dip"
+
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/stopButtonText"
+                android:id="@+id/mStopButton"
+                android:layout_weight="1"
+                android:background="@drawable/stopbuttonxml"
+                android:textColor="#e5e5e5"
+
+                android:textSize="18dip"
+
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/space3"
+        android:layout_width="fill_parent"
+        android:layout_height="31dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/C"
+        android:layout_width="fill_parent"
+        android:layout_height="104dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/SetTimeButtonText"
+            android:id="@+id/mSetTimeButton"
+
+
+            android:layout_weight="0.34"
+            android:background="@drawable/hi"
+            android:textColor="#999"
+
+            android:textSize="18dip"
+
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/space2"
+        android:layout_width="fill_parent"
+        android:layout_height="66dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+</LinearLayout>
