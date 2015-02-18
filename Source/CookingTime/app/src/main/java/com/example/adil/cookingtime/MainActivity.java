@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, myDialog.SendMessage {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -110,11 +110,7 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void sendData(int time) {
-        timer_fragment f2 = (timer_fragment)getSupportFragmentManager().findFragmentById(R.layout.fragment_timer);
-        f2.getData(time);
-    }
+
 
     /**
      * A placeholder fragment containing a simple view.

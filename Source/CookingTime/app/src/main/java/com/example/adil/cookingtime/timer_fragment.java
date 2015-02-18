@@ -13,6 +13,7 @@ import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ import android.widget.Toast;
 /**
  * Created by Adil on 2/17/2015.
  */
-public class timer_fragment extends Fragment{
+public class timer_fragment extends Fragment implements myDialog.onTimeListener {
     TextView clock;
     int time;
     Button startButton;
@@ -64,17 +65,7 @@ public class timer_fragment extends Fragment{
             @Override
             public void onClick(View v) {
 
-                FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
-                myDialog dialog1 = new myDialog();
-                // dialog1.show(getSupportFragmentManager(), "my_dialog");
-                dialog1.show(ft, "acknowledgements");
-                //getData(time);
-  /*
-
-*/
-
-                Toast.makeText(getActivity().getApplicationContext(), "Time: " + time,
-                        Toast.LENGTH_LONG).show();
+               onClickSetTime();
             }
         });
 
@@ -174,23 +165,29 @@ public class timer_fragment extends Fragment{
 
     }
 
-    public void getData(int time){
-        this.time = time;
-    }
-/*
-    public void onClickSetTime(View view){
-        FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+    public void onClickSetTime(){
+       // FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
         myDialog dialog1 = new myDialog();
-       // dialog1.show(getSupportFragmentManager(), "my_dialog");
-        dialog1.show(ft, "acknowledgements");
-        MainActivity main;
-        main = (MainActivity)getActivity();
-        main.time = time;
+        // dialog1.show(getSupportFragmentManager(), "my_dialog");
+        //dialog1.show(ft, "acknowledgements");
+        dialog1.setTargetFragment(this, 0);
+        //dialog1.show(ft, "acknoledgments");
+        dialog1.show(fm, "acknowledgements");
+
+
+        Toast.makeText(getActivity().getApplicationContext(), "Time: " + time,
+                Toast.LENGTH_LONG).show();
 
 
         //Log.i("tag", time);
     }
-*/
+
+    @Override
+    public void onTimeSubmit(int time) {
+        this.time = time;
+    }
+
     public class MyCountDownTimer extends CountDownTimer {
 
         //TextView clock;
