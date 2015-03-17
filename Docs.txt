@@ -1,0 +1,17 @@
+NavigationDrawer Example
+https://www.youtube.com/watch?v=ZdBe_tPOY-A
+
+Pass data from fragment to activity
+http://stackoverflow.com/questions/24931693/how-to-pass-data-from-fragment-to-activity
+
+callbacks from fragment
+https://gist.github.com/Joev-/5695813
+
+Example chrono
+https://play.google.com/store/apps/details?id=com.marks.chronolist
+
+color hex
+http://www.color-hex.com/color/d3d3d3
+
+Design tutorial
+https://www.youtube.com/watch?v=f0Ddy4R_-_A

@@ -3,6 +3,7 @@
     package="com.example.adil.cookingtime" >
     <uses-permission android:name="android.permission.VIBRATE" />
     <application
+        android:configChanges="orientation|screenSize"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"

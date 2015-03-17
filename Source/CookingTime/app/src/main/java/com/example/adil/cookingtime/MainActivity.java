@@ -58,6 +58,22 @@ public class MainActivity extends ActionBarActivity
                     .commit();
         }
 
+        if(position == 1) {
+
+            Fragment fragA = new foods_fragment();
+
+            if (fragA.isAdded()) {
+
+                fragmentManager.beginTransaction().show(fragA).commit();
+
+            } else {
+                fragmentManager.beginTransaction().addToBackStack(null);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, foods_fragment.newInstance())
+                        .commit();
+            }
+        }
+
     }
 
     public void onSectionAttached(int number) {

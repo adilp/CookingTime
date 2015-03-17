@@ -14,6 +14,7 @@ import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,9 @@ public class timer_fragment extends Fragment implements myDialog.onTimeListener 
 
     Dialog custom;
 
+
+
+
     public static timer_fragment newInstance(){
         timer_fragment fragment = new timer_fragment();
         return fragment;
@@ -44,6 +48,9 @@ public class timer_fragment extends Fragment implements myDialog.onTimeListener 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_timer, container, false);
 
+
+
+        //Start stop buttons
         startButton = (Button)rootView.findViewById(R.id.startButton);
         stopButton = (Button)rootView.findViewById(R.id.mStopButton);
 
@@ -98,6 +105,7 @@ public class timer_fragment extends Fragment implements myDialog.onTimeListener 
         return rootView;
 
     }
+
 
     public void notification(int str){
 
