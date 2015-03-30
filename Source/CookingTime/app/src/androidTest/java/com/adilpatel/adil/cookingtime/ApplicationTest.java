@@ -1,4 +1,4 @@
-package com.example.adil.cookingtime;
+package com.adilpatel.adil.cookingtime;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

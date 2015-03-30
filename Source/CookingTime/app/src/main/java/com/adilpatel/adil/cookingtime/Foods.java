@@ -1,7 +1,5 @@
-package com.example.adil.cookingtime;
-import io.realm.RealmList;
+package com.adilpatel.adil.cookingtime;
 import io.realm.RealmObject;
-import io.realm.annotations.Ignore;
 
 /**
  * Created by Adil on 2/21/2015.

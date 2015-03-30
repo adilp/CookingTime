@@ -1,36 +1,29 @@
-package com.example.adil.cookingtime;
+package com.adilpatel.adil.cookingtime;
 
-import android.app.Activity;
+/**
+ * Created by Adil on 2/17/2015.
+ */
 import android.app.AlertDialog;
 import android.app.Dialog;
 //import android.app.DialogFragment;
 import android.support.v4.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
-/**
- * Created by Adil on 2/19/2015.
- */
-public class dialog_foods extends DialogFragment {
 
-    private foodsDialogListener callback;
+public class myDialog extends DialogFragment {
 
-    public interface foodsDialogListener{
-        public void nameTimeSubmit(int time, String name);
+    private onTimeListener callback;
+
+    public interface onTimeListener{
+        public void onTimeSubmit(int time);
     }
-
 
     LayoutInflater inflater;
     View v;
@@ -38,30 +31,33 @@ public class dialog_foods extends DialogFragment {
     NumberPicker min;
     NumberPicker sec;
     int time;
-    EditText nameField;
-    String name;
 
+
+    public void broadcastIntent(View view){
+        Intent intent = new Intent();
+        //intent.setAction(time);
+        intent.setAction("time");
+    }
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState){
         inflater = getActivity().getLayoutInflater();
-        v = inflater.inflate(R.layout.fragment_add_food, null);
-        hour = (NumberPicker) v.findViewById(R.id.mHoursNumberPickerFoods);
+        v = inflater.inflate(R.layout.time_picker_dialog, null);
+        hour = (NumberPicker) v.findViewById(R.id.mHourPicker);
         hour.setMaxValue(24);
         hour.setMinValue(0);
         hour.setWrapSelectorWheel(true);
-        min = (NumberPicker) v.findViewById(R.id.mMinutesNumberPickerFoods);
+        min = (NumberPicker) v.findViewById(R.id.mMinPicker);
         min.setMaxValue(60);
         min.setMinValue(0);
         min.setWrapSelectorWheel(true);
-        sec = (NumberPicker) v.findViewById(R.id.mSecondsNumberPickerFoods);
+        sec = (NumberPicker) v.findViewById(R.id.mSecondPicker);
         sec.setMaxValue(90);
         sec.setMinValue(0);
         sec.setWrapSelectorWheel(true);
-        nameField = (EditText) v.findViewById(R.id.mNameEditText);
 
         try{
-            callback = (foodsDialogListener) getTargetFragment();
+            callback = (onTimeListener) getTargetFragment();
         } catch (ClassCastException e){
             throw new ClassCastException("calling Fragment must implement onTimeListener");
         }
@@ -80,10 +76,10 @@ public class dialog_foods extends DialogFragment {
                 int minutes = min.getValue();
                 int seconds = sec.getValue();
 
-                name =  nameField.getText().toString();
+
 
                 time  = hours * 3600000 + minutes * 60000 + seconds * 1000;
-                callback.nameTimeSubmit(time, name);
+                callback.onTimeSubmit(time);
 
 
 /*
@@ -107,4 +103,9 @@ public class dialog_foods extends DialogFragment {
 
         return builder.create();
     }
+
+
+
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.adil.cookingtime;
+package com.adilpatel.adil.cookingtime;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;

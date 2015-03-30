@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context="com.example.adil.cookingtime.TimeActivity">
+    tools:context="com.adilpatel.adil.cookingtime.TimeActivity">
 
 
     <LinearLayout

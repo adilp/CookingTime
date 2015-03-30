@@ -1,8 +1,7 @@
-package com.example.adil.cookingtime;
+package com.adilpatel.adil.cookingtime;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.FragmentTransaction;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,8 +13,6 @@ import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,8 +81,8 @@ public class timer_fragment extends Fragment implements myDialog.onTimeListener 
                 clock.setText("00:00:00");
                 counter.start();
 
-                Toast.makeText(getActivity().getApplicationContext(), "Time: " + time,
-                        Toast.LENGTH_LONG).show();
+               // Toast.makeText(getActivity().getApplicationContext(), "Time: " + time,
+                 //       Toast.LENGTH_LONG).show();
 
 
                 stopButton.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +91,8 @@ public class timer_fragment extends Fragment implements myDialog.onTimeListener 
 
                         counter.cancel();
 
-                        Toast.makeText(getActivity().getApplicationContext(), "Stop",
-                                Toast.LENGTH_LONG).show();
+                    //    Toast.makeText(getActivity().getApplicationContext(), "Stop",
+                      //          Toast.LENGTH_LONG).show();
 
                         clock.setText("00:00:00");
                     }
@@ -184,8 +181,8 @@ public class timer_fragment extends Fragment implements myDialog.onTimeListener 
         dialog1.show(fm, "acknowledgements");
 
 
-        Toast.makeText(getActivity().getApplicationContext(), "Time: " + time,
-                Toast.LENGTH_LONG).show();
+       // Toast.makeText(getActivity().getApplicationContext(), "Time: " + time,
+         //       Toast.LENGTH_LONG).show();
 
 
         //Log.i("tag", time);

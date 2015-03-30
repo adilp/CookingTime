@@ -1,39 +1,22 @@
-package com.example.adil.cookingtime;
+package com.adilpatel.adil.cookingtime;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.FragmentTransaction;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v4.app.FragmentManager;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 
@@ -80,6 +63,17 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
         mAdapter = new MyListAdapter(foods, getActivity());
         foodsListView.setAdapter(mAdapter);
 
+
+        foodsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Foods p = foods.get(position);
+                String pos = p.get_id();
+                delete(pos);
+
+            }
+        });
+
        // realm = Realm.getInstance(getActivity());
         //basicCRUD(realm);
         //basicQuery(realm);
@@ -92,7 +86,7 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delete();
+                delete("0");
 
             }});
 
@@ -129,8 +123,8 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
         //dialog1.show(ft, "acknoledgments");
         dialog1.show(fm, "acknowledgements");
 
-        Toast.makeText(getActivity().getApplicationContext(), "Add Button Pressed",
-                Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity().getApplicationContext(), "Add Button Pressed",
+          //      Toast.LENGTH_LONG).show();
         i++;
 
 
@@ -147,9 +141,11 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
 
         RealmResults<Foods> query = realm.where(Foods.class).findAll();
 
-        /* for (Foods p : query){
+
+
+         for (Foods p : query){
             foods.add(p);
-        } */
+        }
 
 
     }
@@ -167,16 +163,24 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
         realm.commitTransaction();
     }
 
-    public void delete(){
+    public void delete(String pos){
         Realm realm = Realm.getInstance(getActivity());
 
-        realm.beginTransaction();
-        RealmResults<Foods> query = realm.where(Foods.class).findAll();
 
-        query.clear();
+        //RealmResults<Foods> query = realm.where(Foods.class).findAll();
+       // Foods delete = realm.where(Foods.class).findAll();
+        //Foods delete = realm.where(Foods.class).equalTo("_id", pos).findFirst();
+
+        realm.beginTransaction();
+
+
+        //delete.removeFromRealm();
+        realm.allObjects(Foods.class).remove(pos);
+
 
 
         realm.commitTransaction();
+
 
     }
     public void add(){
@@ -188,8 +192,8 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
         p.setTime(time);
         p.set_foodName(name);
         p.set_id(UUID.randomUUID().toString());
-        Toast.makeText(getActivity().getApplicationContext(), "realm added",
-                Toast.LENGTH_LONG).show();
+       // Toast.makeText(getActivity().getApplicationContext(), "realm added",
+         //       Toast.LENGTH_LONG).show();
 
         realm.commitTransaction();
         foods.add(p);
@@ -247,8 +251,8 @@ public class foods_fragment extends Fragment implements dialog_foods.foodsDialog
         ((MainActivity) activity).onSectionAttached(2);
     }
     public void testToast(){
-        Toast.makeText(getActivity().getApplicationContext(), time + " " + name,
-                Toast.LENGTH_LONG).show();
+       // Toast.makeText(getActivity().getApplicationContext(), time + " " + name,
+         //       Toast.LENGTH_LONG).show();
     }
     @Override
     public void nameTimeSubmit(int time, String name) {

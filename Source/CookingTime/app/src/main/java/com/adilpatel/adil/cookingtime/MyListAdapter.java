@@ -1,4 +1,4 @@
-package com.example.adil.cookingtime;
+package com.adilpatel.adil.cookingtime;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
